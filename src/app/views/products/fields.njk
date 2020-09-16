@@ -1,0 +1,52 @@
+<div class="item">
+    <div>Nome da Matéria</div>
+    <div>
+        <input type="text"
+        name="name"
+        placeholder="Trigo"
+        value="{{ product.name }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Marca</div>
+    <div>
+        <input type="text"
+        name="brand"
+        placeholder="Nome do Instrutor"
+        value="{{ product.brand }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Fornecedor</div>
+    <div>
+        <input type="text" 
+        name="provider"
+        value="{{ product.provider }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Quantity(Kg)</div>
+    <div>
+        <input type="number" 
+        name="quantity"
+        placeholder="15"
+        value="{{ product.quantity }}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Preço pago(R$)</div>
+    <div>
+        <input type="number" 
+        name="total_value"
+        placeholder="15"
+        value="{{ product.total_value}}">
+    </div>
+</div>
+
+<button type="submit">
+    Salvar
+</button>

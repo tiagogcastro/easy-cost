@@ -1,0 +1,244 @@
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.table-container {
+    margin-bottom: 30px;
+}
+
+.table-container .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    margin-top: 24px;
+}
+
+.table-container .header form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-container .header form input {
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: var(--color-White);
+    width: 200px;
+    margin-right: 12px;
+}
+
+button[type="submit"],
+a.button {
+    padding: 8px 32px;
+    background: var(--color-blue);
+    color: white;
+    border-radius: 4px;
+    max-width: 300px;
+    width: 100%;
+    font-size: 16px;
+    text-align: center ;
+    font-weight: 600;
+}
+
+button[type="submit"]:hover,
+a.button:hover {
+    filter: brightness(90%);
+    cursor: pointer;
+    transition: background 0.6s;
+}
+
+.table-container .productscategories a{
+    padding: 8px;
+    margin-right: 4px;
+    color: white;
+    font-weight: 400;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: var(--color-blue);
+}
+
+.table-container .productscategories a:hover {
+    filter: brightness(90%);
+}
+
+.table-container .productscategories a:last-child {
+    margin-right: 0;
+}
+
+.classModifyTitle h1{
+    padding: 24px 0 12px 0;
+    color: white;
+}
+
+.cards-products {
+    margin: 0 auto ;
+    padding: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid var(--color-White);
+    border-bottom: 2px solid var(--color-White);
+    margin-bottom: 48px;
+    /* Animation */
+    animation-name: up 200ms ease;
+}
+
+.card-product {
+    width: 260px;
+    margin: 8px;
+    border-radius: 12px 12px 0 0;
+    background-color: rgb(223, 223, 223);
+    box-shadow: 2px 2px 4px -2px black;
+}
+
+.card-product .card-text {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 24px 24px 24px;
+}
+
+.card-text h1,h3,h4,h5 {
+    padding: 4px;
+}
+
+.card-product .card-text h1 {
+    text-align: center;
+    padding: 12px 0 8px 0;
+    font-size: 24px;
+    border-bottom: 2px solid #272727;
+    color: #000000;
+}
+
+.card-text h3:first-child {
+    border-top: 1px solid black;
+}
+
+.card-text h3 {
+    color: #272727;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.card-text h4 {
+    color: #333;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.card-text h4:nth-child(6) {
+    font-size: 20px;
+    border-top: 2px solid #272727;
+    border-bottom: 2px solid #272727;
+    color: #272727;
+}
+
+.card-text span {
+    color: #777;
+}
+
+.card-text h5 {
+    font-weight: 400;
+    color: #777;
+    padding: 12px 0;
+    font-size: 16px;
+}
+
+.card-text a {
+    text-align:center;
+    background: var(--color-blue);
+    border-radius: 4px;
+    padding: 8px 0;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.card-text a:hover {
+    filter: brightness(90%);
+}
+
+/* create */
+
+.cardCreate {
+    margin: 0 auto ;
+    padding: 32px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+
+    box-sizing: border-box;
+    /* Animation */
+    animation-name: up 200ms ease;
+}
+
+.cardCreate .details {
+    background-color: var(--color-White);
+    margin: 0 auto;
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: 24px;
+    border-radius: 8px 0;
+}
+
+.details .item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px 0;
+}
+
+.details .item:last-child {
+    border-bottom: none;
+}
+
+.details h3,
+.details .item div:nth-child(1) {
+    line-height: 24px;
+    font-size: 14px;
+    color: #777;
+    letter-spacing: 0.7px;
+    font-weight: normal;
+}
+
+.details .item div:nth-child(2) {
+    color: #555;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.cardCreate .item input {
+    padding: 8px 4px;
+    background-color: rgb(218, 246, 255);
+    width: 90%;
+    border-radius: 4px;
+}
+
+.cardCreate .item input:focus {
+    border: 1px solid var(--color-primary)
+}
+
+.cardCreate .details h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--color-primary);
+}
+
+@keyframes up {
+    from { /*0%*/
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+    }
+}

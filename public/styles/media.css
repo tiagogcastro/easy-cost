@@ -1,0 +1,27 @@
+@media (max-width: 900px) {
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80vw;
+    }
+
+    .card .details {
+        text-align: left;
+        width: 60vw;
+    }
+
+    .card .avatar {
+        margin-top: 2rem;
+        height: 16rem;
+        width: 16rem;
+        border-radius: 50%;
+        border: 2px solid var(--color-primary);
+    }
+
+    .card .details h3 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+}

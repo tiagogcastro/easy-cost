@@ -1,0 +1,14 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+    <form class="cardCreate container" method="POST" action="/products">
+        <section class="details">
+            <h3>Nova Matéria Prima</h3>
+
+            {% include 'products/fields.njk' %}
+
+        </section>
+    </form>
+
+{% endblock content %}

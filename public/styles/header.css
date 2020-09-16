@@ -1,0 +1,44 @@
+header {
+    background-color: rgb(234, 246, 255);
+    width: 100%;
+    padding: 32px;
+    text-align: center;
+    box-sizing: border-box; 
+}
+
+.links {
+    font-size: 22px;
+}
+
+.links a + a {
+    margin-left: 32px;
+}
+
+.links a {
+    color: #777;
+    position: relative;
+}
+
+.links a.active {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.links a:hover {
+    color: var(--color-primary);
+}
+
+.links a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+}
+
+.links a:hover::after {
+    width: 40%;
+    transition: width 400ms ease-in-out ;
+}
