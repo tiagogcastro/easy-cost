@@ -2,47 +2,94 @@
 
 {% block content %}
         {% block head %}
-            <title>Gym Manager - {{instructor.name}}</title>
+            <title>Easy Cost - {{product.name}}</title>
         {% endblock %}
-    <div class="card">
-        <section class="avatar" 
-        style="background: url({{ instructor.avatar_url}}) no-repeat center center / cover">
-
-        </section>
+    <div class="cardCreate container editShow">
         <section class="details">
             <h3>Detalhes / Id: {{product.id}}</h3>
             <div class="item">
-                <div>Instrutor</div>
-                <div>{{ instructor.name}}</div>
+                <div>Produto</div>
+                <div>{{product.name}}</div>
             </div>
 
             <div class="item">
-                <div>Idade</div>
-                <div>{{ instructor.age}}</div>
+                <div>Marca</div>
+                <div>{{product.brand}}</div>
             </div>
+
             <div class="item">
-                <div>Sexo</div>
-                <div>
-                    {{ "Masculino" if instructor.gender == "M" else "Feminino"}}
-                </div>
+                <div>Fornecedor</div>
+                <div>{{product.provider}}</div>
             </div>
+
             <div class="item">
-                <div>Acompanhamento</div>
-                <div>
-                    {% for service in instructor.services %}
-                        <span>{{service}}</span>
-                    {% endfor %}
-                </div>
+                <div>Quantidade(Kg)</div>
+                <div>{{product.quantity}}</div>
+            </div>
+
+            <div class="item">
+                <div>Valor Total</div>
+                <div>{{total}}</div>
             </div>
             
             <div class="item">
-                <div>Desde</div>
-                <div>{{instructor.created_at}} </div>
+                <div>Ultima Atualização</div>
+                <div>{{product.updated_at}} às {{product.published.hour}}</div>
             </div>
 
-            <a href="/instructors/{{instructor.id}}/edit" class="button">Editar</a>
+            <div class="item">
+                <div>Publicado em: {{product.published.day}} às {{product.published.hour}}</div>
+            </div>
+        </section>
+
+        <section class="details">
+            <form method="POST" action="/products?_method=PUT">
+                <h3>Editar Produto</h3>
+
+                {% include 'products/fields.njk'  %}
+
+                {# Precisa do id para gerar o update do edit #}
+                <input type="hidden"
+                name="id"
+                value={{product.id}}>
+            </form>
+            <div class="buttonsProducts">
+                <form class="form-delete" action="/products?_method=DELETE" method="post">
+                    <input type="hidden"
+                    name="id"
+                    value={{product.id}}>
+                    <button type="submit">Deletar</button>
+                </form> 
+            </div>
 
         </section>
+    </div>
+    
+    <div class=" container products-solid classModifyTitle" id="solid">
+        <h1 class="container">Histórico de Atualização</h1>
+        <div class="cards-products container">
+            <h1>Em breve...</h1>
+                {# <div class="card-product">
+                    <div class="card-text">
+                        <h1>{{product.name}}</h1>
+                        <h3>Marca: 
+                            <span>{{product.brand}}</span>
+                        </h3>
+                        <h3>Fornecedor: 
+                            <span>{{product.provider}}</span>
+                        </h3>
+                        <h4>Quantidade(Kg): 
+                            <span>{{product.quantity}}</span>
+                        </h4>
+                        <h4>Valor por unidade: 
+                            <span>R$ 10,000</span>
+                        </h4>
+                        <h4>Valor Total: {{product.total_value}}</h4>
+                        <h5>Atualizado em: {{product.updated_at}}</h5>
+                        <a href="/products/{{product.id}}">Ver Produto</a>
+                    </div>
+                </div> #}
+        </div>
     </div>
 
 {% endblock content %}

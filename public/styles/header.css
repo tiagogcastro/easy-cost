@@ -1,22 +1,49 @@
-header {
+.headerMain {
     background-color: rgb(234, 246, 255);
     width: 100%;
     padding: 32px;
     text-align: center;
     box-sizing: border-box; 
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.logo  a{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.logo h1 {
+    font-size: 36px;
+    color: var(--color-primary);
+}
+
+.logo h2 {
+    font-size: 20px;
+    margin-left: 2px;
+    font-weight: 700;
+    color: var(--color-blue);
 }
 
 .links {
     font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.links a + a {
-    margin-left: 32px;
+.links a:first-child {
+    margin-right: 24px;
 }
 
 .links a {
     color: #777;
     position: relative;
+}
+
+.links a + a {
+    cursor: no-drop;
 }
 
 .links a.active {
@@ -41,4 +68,29 @@ header {
 .links a:hover::after {
     width: 40%;
     transition: width 400ms ease-in-out ;
+}
+
+
+input[type="radio"] {
+    width: initial;
+    margin-right: 4px;
+}
+
+.label-class:hover{
+    cursor: pointer;
+}
+
+input::placeholder {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+
+.form-delete button[type="submit"] {
+    margin-top: 8px;
+    background-color: lightcoral;
+}
+
+.form-delete button[type="submit"]:hover {
+    background-color: red;
 }

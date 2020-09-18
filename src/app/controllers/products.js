@@ -1,11 +1,21 @@
-const { age, date, split } = require('../../lib/utils')
+const { formatPrice, date } = require('../../lib/utils')
 const Product = require('../models/Product')
 
 module.exports = {
     async index(req, res) {
         let { filter } = req.query
-        const products = await Product.findAll(req.params.id)
+        let products = await Product.findAll(req.params.id)
 
+        products = products.map(product => {
+            const { hour, minutes} = date(product.updated_at)
+
+            return {
+                ...product,
+                updated_at: product.updated_at = date(product.updated_at).format,
+                published: `${hour}h ${minutes}min`,
+                total_value: product.total_value = formatPrice(product.total_value)
+            }
+        })
         return res.render('products/index', {filter, products})
     },
 
@@ -31,47 +41,45 @@ module.exports = {
     },
 
     show(req, res) {
-       Product.find(req.params.id, function(product) {
+         Product.find(req.params.id, function(product) {
            if (!product) {
                return res.send('Product not found!')
            }
-           product.created_at = date(product.created_at).format
+           const { day, hour, minutes, month} = date(product.updated_at)
 
-           return res.render('products/show', { product })
-       })
+           product.published = {
+               day: `${day}/${month}`,
+               hour: `${hour}h ${minutes}min`
+           }
+   
+           const price = product.total_value
+           const total = product.total_value = formatPrice(product.total_value)
+           product.updated_at = date(product.updated_at).format
+   
+           return res.render('products/show', { product, total, price })
+        })
     },
 
-//     edit(req, res) {
-//         Product.find(req.params.id, function(product) {
-//             if (!product) {
-//                 return res.send('Product not found!')
-//             }
- 
-//             product.birth = date(product.birth).iso
- 
-//             return res.render('products/edit', { product })
-//         })
-//     },
-    
-//     put(req, res) {
-//        // validação
-//         const keys = Object.keys(req.body) 
+    put(req, res) {
+       // validação
+       const keys = Object.keys(req.body) 
         
-//         for(key of keys) {
-//            req.body[key] // req.body.key == ""
-//            if (req.body[key] == "") {
-//                return res.send('Please, fill all fields')
-//            }
-//        }
+       for(key of keys) {
+           req.body[key] 
+           if (req.body[key] == "") {
+               return res.send('Please, fill all fields')
+           }
+       }
+       req.body.total_value = req.body.total_value.replace(/\D/g, "")
+       Product.update(req.body,function(product) {
 
-//        Product.update(req.body, function() {
-//            return res.redirect(`/products/${req.body.id}`)
-//        })
-//     },
+            return res.redirect(`/products/${req.body.id}`)
+        })    
+    },
 
-//     delete(req, res) {
-//         Product.delete(req.body.id, function() {
-//             return res.redirect(`/products`)
-//         })
-//     }
+    async delete(req, res) {
+        await Product.delete(req.body.id, function() {
+            return res.redirect(`/products`)
+        })
+    }
 }

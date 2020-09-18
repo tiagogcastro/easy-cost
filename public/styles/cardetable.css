@@ -11,48 +11,49 @@
 .table-container .header{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
     box-sizing: border-box;
     margin-top: 24px;
 }
 
 .table-container .header form{
     display: flex;
+    margin-top: 32px;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    width: 100% ;
 }
 
 .table-container .header form input {
     padding: 8px 12px;
     border-radius: 4px;
     background-color: var(--color-White);
-    width: 200px;
-    margin-right: 12px;
+    width: 50%;
+    margin-bottom: 16px;
 }
 
-button[type="submit"],
-a.button {
-    padding: 8px 32px;
-    background: var(--color-blue);
-    color: white;
-    border-radius: 4px;
-    max-width: 300px;
+.table-container .header form input:focus {
+    background: rgb(255, 246, 234);
+    border: 2px solid var(--color-blue);
+}
+
+.table-container .productscategories {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
     width: 100%;
-    font-size: 16px;
-    text-align: center ;
-    font-weight: 600;
-}
-
-button[type="submit"]:hover,
-a.button:hover {
-    filter: brightness(90%);
-    cursor: pointer;
-    transition: background 0.6s;
 }
 
 .table-container .productscategories a{
-    padding: 8px;
-    margin-right: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 12px;
     color: white;
     font-weight: 400;
     border-radius: 4px;
@@ -64,8 +65,36 @@ a.button:hover {
     filter: brightness(90%);
 }
 
-.table-container .productscategories a:last-child {
-    margin-right: 0;
+.table-container .header .button {
+    margin-bottom: 24px;
+    background: rgb(51, 255, 136);
+}
+
+button[type="submit"],
+a.button {
+    padding: 8px 32px;
+    background: var(--color-blue);
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center ;
+    font-weight: 600;
+    transition: 300ms;
+}
+
+button[type="submit"]:hover,
+a.button:hover {
+    filter: brightness(90%);
+    cursor: pointer;
+    transition: background 0.6s;
+}
+
+.buttonsProducts {
+    width: 100%;
+}
+
+.buttonsProducts button[type="submit"] {
+    width: 100%;
 }
 
 .classModifyTitle h1{
@@ -192,7 +221,7 @@ a.button:hover {
 
 .details .item {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 16px 0;
+    padding: 16px 8px;
 }
 
 .details .item:last-child {
@@ -215,9 +244,9 @@ a.button:hover {
 }
 
 .cardCreate .item input {
-    padding: 8px 4px;
+    padding: 8px 8px;
     background-color: rgb(218, 246, 255);
-    width: 90%;
+    width: 100%;
     border-radius: 4px;
 }
 
@@ -229,6 +258,7 @@ a.button:hover {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 18px;
+    text-align: center;
     color: var(--color-primary);
 }
 
@@ -240,5 +270,102 @@ a.button:hover {
 
     to {
         opacity: 1;
+    }
+}
+
+
+.productNotFound {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.productNotFound img {
+    width: 400px;
+    height: 400px;
+}
+
+.productNotFound .notProduct {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.productNotFound .notProduct h1 {
+    max-width: 400px;
+}
+
+.editShow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.editShow .details {
+    margin: 24px;
+}
+
+.editShow .products-solid {
+    margin-top: 2%;
+}
+
+@media (max-width: 600px) {   
+    .headerMain {
+        flex-direction: column;
+        padding: 12px 32px 32px;
+    }
+
+    .links {
+        margin-top: 12px;
+    }
+}
+
+@media (min-width: 600px) {
+
+    .table-container .productscategories {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .table-container .productscategories a {
+        margin: 4px;
+        width: 30%;
+    }
+}
+
+@media (min-width: 800px) {
+
+    
+    .table-container .header form{
+        flex-direction: row;
+        margin-bottom: 16px;
+    }
+    .table-container .header form input {
+        margin-bottom: 0;
+        margin-right: 16px;
+    }
+}
+
+@media (min-width: 1380px) {
+    .table-container .header {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .table-container .header .productscategories {
+        order: -1;
+    }
+
+    .table-container .header .button {
+        width: 40%;
+        margin-bottom: 0;
+
+    }
+
+    .table-container .header form {
+        margin: 0;
     }
 }

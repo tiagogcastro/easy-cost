@@ -32,7 +32,7 @@ module.exports = {
             ) VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING id
         `
-
+        data.total_value = data.total_value.replace(/\D/g,"")
         const values = [
             data.name,
             data.brand,
@@ -52,12 +52,16 @@ module.exports = {
 
     findAll: async() => {
         return new Promise((resolve, reject) => {
-            db.query(`SELECT * FROM products`, [], function(err, results) {
+            db.query(`
+                SELECT * FROM products
+                GROUP BY (products.id)
+                ORDER BY created_at DESC
+            `, [], function(err, results) {
             if(err) {
-              reject(`Database Error! ${err}`);
+              reject(`Database Error! ${err}`)
             }
-            resolve(results.rows);
-          })
+                resolve(results.rows)
+            })
         })
       },
 
@@ -71,101 +75,98 @@ module.exports = {
         })
     },
 
-//     findBy(filter, callback) {
-//         db.query(`
-//         SELECT products.*
-//         FROM products
-//         WHERE products.name ILIKE '%${filter}%'
-//         OR products.total_values ILIKE '%${filter}%'
-//         GROUP BY (products.id)
-//         ORDER BY total_values DESC`, 
-//         function(err, results) {
-//             if(err) {
-//                 throw `Database Error! ${err}`
-//             }
+    findBy(filter, callback) {
+        db.query(`
+        SELECT products.*
+        FROM products
+        WHERE products.name ILIKE '%${filter}%'
+        OR products.total_values ILIKE '%${filter}%'
+        GROUP BY (products.id)
+        ORDER BY products.name DESC`, 
+        function(err, results) {
+            if(err) {
+                throw `Database Error! ${err}`
+            }
             
-//             callback(results.rows)
-//         })
-//     },
+            callback(results.rows)
+        })
+    },
 
-//     update(data, callback) {
-//         const query = `
-//             UPDATE products SET
-//                 avatar_url=($1),
-//                 name=($1),
-//                 brand=($2),
-//                 provider=($3),
-//                 quantity=($4),
-//                 total_value=($5)
-//                 updated_at=($6)
-//             WHERE id = $6
-//         `
+    update(data, callback) {
+        const query = `
+            UPDATE products SET
+                name=($1),
+                brand=($2),
+                provider=($3),
+                quantity=($4),
+                total_value=($5)
+            WHERE id = $6
+        `
 
-//         const values = [
-//             data.name,
-//             data.brand,
-//             data.provider,
-//             data.quantity,
-//             data.total_value,
-//             data.updated_at,
-//             data.id,
-//         ]
+        const values = [
+            data.name,
+            data.brand,
+            data.provider,
+            data.quantity,
+            data.total_value,
+            data.id
+        ]
 
-//         db.query(query, values, function(err, results) {
-//             if(err) {
-//                 throw `Database Error! ${err}`
-//             }
+        db.query(query, values, function(err, results) {
+            if(err) {
+                throw `Database Error! ${err}`
+            }
 
-//             callback()
-//         })
-//     },
+            callback()
+        })
+    },
 
-//     delete(id, callback) {
-//         db.query(`DELETE FROM products WHERE id = $1`, [id], 
-//         function(err, results) {
-//             if(err) {
-//                 throw `Database Error! ${err}`
-//             }
-//             return callback()
-//         })
-//     },
+    delete(id, callback) {
+        db.query(`DELETE FROM products WHERE id = $1`, [id], 
+        function(err, results) {
+            if(err) {
+                throw `Database Error! ${err}`
+            }
+            return callback()
+        })
+    },
     
-//     paginate(params) {
-//         const { filter, limit, offset, callback} = params
+    // paginate(params) {
+    //     const { filter, limit, offset, callback} = params
 
-//         let query = "",
-//             filterQuery = "",
-//             totalQuery = `(
-//                 SELECT count(*) FROM products
-//                 ) AS total`
+    //     let query = "",
+    //         filterQuery = "",
+    //         totalQuery = `(
+    //             SELECT count(*) FROM products
+    //             ) AS total`
 
-//         if (filter) {
-//             filterQuery = `
-//             WHERE products.name ILIKE '%${filter}%'
-//             OR products.services ILIKE '%${filter}%'`
+    //     if (filter) {
+    //         filterQuery = `
+    //         WHERE products.name ILIKE '%${filter}%'
+    //         OR products.services ILIKE '%${filter}%'`
 
-//             totalQuery = `(
-//                 SELECT count(*) FROM products
-//                 ${filterQuery}
-//             ) as total`
-//         }
+    //         totalQuery = `(
+    //             SELECT count(*) FROM products
+    //             ${filterQuery}
+    //         ) as total`
+    //     }
 
-//         // Vai limitar a paginação
-//         query = `
-//         SELECT products.*, ${totalQuery} , count(members) AS total_students 
-//         FROM products
-//         LEFT JOIN members ON (products.id = members.instructor_id)
-//         ${filterQuery}
-//         GROUP BY products.id LIMIT $1 OFFSET $2`
+    //     // Vai limitar a paginação
+    //     query = `
+    //     SELECT products.*, ${totalQuery} , count(members) AS total_students 
+    //     FROM products
+    //     LEFT JOIN members ON (products.id = members.instructor_id)
+    //     ${filterQuery}
+    //     GROUP BY products.id LIMIT $1 OFFSET $2`
 
-//         db.query(query, [limit, offset], function(err, results) {
-//             if(err) {
-//                 throw 'Database Error!'
-//             }
+    //     db.query(query, [limit, offset], function(err, results) {
+    //         if(err) {
+    //             throw 'Database Error!'
+    //         }
 
-//             callback(results.rows)
-//         })
+    //         callback(results.rows)
+    //     })
 
-//     }
+    // }
 
  }

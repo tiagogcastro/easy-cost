@@ -15,6 +15,7 @@
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
     outline: none;
+    box-sizing: border-box;
 }
 
 body {

@@ -1,3 +1,20 @@
+const Mask = {
+    apply(input, func) {
+        setTimeout(function() {
+            //  pegar o value do input e rodar a function passando o value para a function
+            input.value = Mask[func](input.value)
+        }, 1)
+    },
+    formatBRL(value) {    
+        value = value.replace(/\D/g, "")
+    
+        return new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        }).format(value / 100)
+    }
+}
+
 const currentPage = location.pathname
 const menuItems = document.querySelectorAll('header .links a')
 
@@ -71,14 +88,16 @@ if (confirmDelete) {
     deleteOrNo()    
 }
 
-function deleteOrNo() {
-    const formDelete = document.querySelector('#form-delete')
+function deleteOrNo(req, res) {
+    const formDelete = document.querySelector('.form-delete')
     formDelete.addEventListener('submit', function(event) {
         const confirmation = confirm('Deseja Deletar?')
         if(!confirmation) {
             event.preventDefault()
         } else {
-            return res.redirect('/')
+            return res.redirect(currentPage)
         }
     })
 }
+
+deleteOrNo()

@@ -6,12 +6,12 @@
 
         <div class="table-container">
             <div class="header">
+                <a class="button" href="/products/create"> Cadastrar Novo Produto</a>
                 <div class="productscategories">
                     <a href="#solid">Produtos Brutos</a>
                     <a href="#liquid">Produtos Líquidos</a>
                     <a href="#spice">Tempero e outros</a>
                 </div>
-                <a class="button" href="/products/create"> Cadastrar Novo Produto</a>
                 <form action="/products" method="GET">
                     <input
                     type="text"
@@ -25,6 +25,55 @@
 
         <div class="products-solid classModifyTitle" id="solid">
             <h1 class="container">Produtos brutos</h1>
+            {% if products == 0 %}
+                <div class="cards-products productNotFound container">
+                    <img src="../../notproduct.svg" alt="">
+                    <div class="notProduct">
+                        <h1>Ohh não, me parece que você não tem um produto...</h1>
+                        <a class="button" href="/products/create"> Cadastre um Agora!</a>
+                    </div>
+                </div>
+            {% else %}
+                <div class="cards-products container">
+                    {% for product in products%}
+                        <div class="card-product">
+                            <div class="card-text">
+                                <h1>{{product.name}}</h1>
+                                <h3>Marca: 
+                                    <span>{{product.brand}}</span>
+                                </h3>
+                                <h3>Fornecedor: 
+                                    <span>{{product.provider}}</span>
+                                </h3>
+                                <h4>Quantidade(Kg): 
+                                    <span>{{product.quantity}}</span>
+                                </h4>
+                                <h4>Valor por unidade: 
+                                    <span>Em breve.</span>
+                                </h4>
+                                <h4>Valor Total: {{product.total_value}}</h4>
+                                <h5>Ultima Atualização: {{product.updated_at}} às {{product.published}}</h5>
+                                <a href="/products/{{product.id}}">Ver Produto</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+        </div>
+
+        <div class="products-solid classModifyTitle" id="liquid">
+            <h1 class="container">Produtos Líquidos</h1>
+            {% if products !== 0 or products == 0 %}
+                <div class="cards-products productNotFound container">
+                    <img src="../../notproduct.svg" alt="">
+                    <div class="notProduct">
+                        <h1>Ohh não, me parece que você não tem um produto...</h1>
+                        <a class="button" href="/products/create"> Cadastre um Agora!</a>
+                    </div>
+                </div>
+            {% endif %}
+            {# 
             <div class="cards-products container">
                 {% for product in products%}
                     <div class="card-product">
@@ -43,68 +92,50 @@
                                 <span>R$ 10,000</span>
                             </h4>
                             <h4>Valor Total: {{product.total_value}}</h4>
-                            <h5>Ultima Compra: {{product.created_at}}</h5>
+                            <h5>Ultima Compra: {{product.updated_at}}</h5>
                             <a href="/products/{{product.id}}">Ver Produto</a>
                         </div>
                     </div>
                 {% endfor %}
-            </div>
-        </div>
-
-        <div class="products-solid classModifyTitle" id="liquid">
-            <h1 class="container">Produtos Líquidos</h1>
-            <div class="cards-products container">
-                {# {% for product in products%} #}
-                    <div class="card-product">
-                        <div class="card-text">
-                            <h1>Massa para pão francês que veio da frança</h1>
-                            <h3>Marca: 
-                                <span>Boa Sorte</span>
-                            </h3>
-                            <h3>Fornecedor: 
-                                <span>Guanabara Multicompras</span>
-                            </h3>
-                            <h4>Quantidade(Kg): 
-                                <span>450</span>
-                            </h4>
-                            <h4>Valor por unidade: 
-                                <span>R$ 10,000</span>
-                            </h4>
-                            <h4>Valor Total: R$ 50,00</h4>
-                            <h5>Ultima Compra: 14/03</h5>
-                            <button>Ver Produto</button>
-                        </div>
-                    </div>
-                {# {% endfor %} #}
-            </div>
+            </div> #}
         </div>
 
         <div class="products-solid classModifyTitle" id="spice">
             <h1 class="container">Temperos e outros</h1>
-            <div class="cards-products container">
-                {# {% for product in products%} #}
+            {% if products !== 0 or products == 0 %}
+                <div class="cards-products productNotFound container">
+                    <img src="../../notproduct.svg" alt="">
+                    <div class="notProduct">
+                        <h1>Ohh não, me parece que você não tem um produto...</h1>
+                        <a class="button" href="/products/create"> Cadastre um Agora!</a>
+                    </div>
+                </div>
+            {% endif %}
+
+            {# <div class="cards-products container">
+                {% for product in products%}
                     <div class="card-product">
                         <div class="card-text">
-                            <h1>Massa para pão francês que veio da frança</h1>
+                            <h1>{{product.name}}</h1>
                             <h3>Marca: 
-                                <span>Boa Sorte</span>
+                                <span>{{product.brand}}</span>
                             </h3>
                             <h3>Fornecedor: 
-                                <span>Guanabara Multicompras</span>
+                                <span>{{product.provider}}</span>
                             </h3>
                             <h4>Quantidade(Kg): 
-                                <span>450</span>
+                                <span>{{product.quantity}}</span>
                             </h4>
                             <h4>Valor por unidade: 
                                 <span>R$ 10,000</span>
                             </h4>
-                            <h4>Valor Total: R$ 50,00</h4>
-                            <h5>Ultima Compra: 14/03</h5>
-                            <button>Ver Produto</button>
+                            <h4>Valor Total: {{product.total_value}}</h4>
+                            <h5>Ultima Compra: {{product.updated_at}}</h5>
+                            <a href="/products/{{product.id}}">Ver Produto</a>
                         </div>
                     </div>
-                {# {% endfor %} #}
-            </div>
+                {% endfor %}
+            </div> #}
         </div>
     </div>
 

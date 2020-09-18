@@ -3,7 +3,7 @@
     <div>
         <input type="text"
         name="name"
-        placeholder="Trigo"
+        placeholder="Farinha de Trigo"
         value="{{ product.name }}">
     </div>
 </div>
@@ -13,7 +13,7 @@
     <div>
         <input type="text"
         name="brand"
-        placeholder="Nome do Instrutor"
+        placeholder=""
         value="{{ product.brand }}">
     </div>
 </div>
@@ -32,7 +32,7 @@
     <div>
         <input type="number" 
         name="quantity"
-        placeholder="15"
+        placeholder="135"
         value="{{ product.quantity }}">
     </div>
 </div>
@@ -40,13 +40,16 @@
 <div class="item">
     <div>Preço pago(R$)</div>
     <div>
-        <input type="number" 
+        <input type="text" 
         name="total_value"
-        placeholder="15"
-        value="{{ product.total_value}}">
+        placeholder="R$ 00,00"
+        value="{{product.total_value}}"
+        onkeydown="Mask.apply(this, 'formatBRL')"
+        >
     </div>
 </div>
-
-<button type="submit">
-    Salvar
-</button>
+<div class="buttonsProducts">
+    <button type="submit">
+        Salvar
+    </button>
+</div>
