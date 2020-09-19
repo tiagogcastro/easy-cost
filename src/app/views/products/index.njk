@@ -49,7 +49,7 @@
                                     <span>{{product.quantity}}</span>
                                 </h4>
                                 <h4>Valor por unidade: 
-                                    <span>Em breve.</span>
+                                    <span class="result">{{product.results}}</span>
                                 </h4>
                                 <h4>Valor Total: {{product.total_value}}</h4>
                                 <h5>Ultima Atualização: {{product.updated_at}} às {{product.published}}</h5>
@@ -140,8 +140,8 @@
     </div>
 
 <script>
-    const tbodyTds = document.querySelectorAll('tbody tr td:first-child');
 
+    const tbodyTds = document.querySelectorAll('tbody tr td:first-child');
     tbodyTds.forEach(td => {
         td.style.height = `${td.parentElement.offsetHeight}px`;
     })

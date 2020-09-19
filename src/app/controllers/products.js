@@ -1,4 +1,4 @@
-const { formatPrice, date } = require('../../lib/utils')
+const { formatPrice, date} = require('../../lib/utils')
 const Product = require('../models/Product')
 
 module.exports = {
@@ -8,9 +8,9 @@ module.exports = {
 
         products = products.map(product => {
             const { hour, minutes} = date(product.updated_at)
-
             return {
                 ...product,
+                results: formatPrice( product.total_value / product.quantity ),
                 updated_at: product.updated_at = date(product.updated_at).format,
                 published: `${hour}h ${minutes}min`,
                 total_value: product.total_value = formatPrice(product.total_value)

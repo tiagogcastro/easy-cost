@@ -25,5 +25,6 @@ module.exports = {
             style: 'currency',
             currency: 'BRL'
         }).format(price / 100)
-    }
+    },
+    
 }

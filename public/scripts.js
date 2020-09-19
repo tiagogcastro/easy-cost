@@ -87,7 +87,6 @@ const confirmDelete = location.pathname.includes('edit')
 if (confirmDelete) {
     deleteOrNo()    
 }
-
 function deleteOrNo(req, res) {
     const formDelete = document.querySelector('.form-delete')
     formDelete.addEventListener('submit', function(event) {
@@ -99,5 +98,14 @@ function deleteOrNo(req, res) {
         }
     })
 }
-
-deleteOrNo()
+function verde() {
+    document.querySelector('.details').style.backgroundColor = "#afff9b"
+  }
+  
+  function laranja() {
+    document.querySelector('.details').style.backgroundColor = "#fff781"
+  }
+  
+  function vermelho() {
+    document.querySelector('.details').style.backgroundColor = "#ff9b9b"
+  }

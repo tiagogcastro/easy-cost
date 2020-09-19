@@ -1,5 +1,5 @@
 .container {
-    max-width: 90%;
+    max-width: 94%;
     margin: 0 auto;
     position: relative;
 }
@@ -117,7 +117,7 @@ a.button:hover {
 }
 
 .card-product {
-    width: 260px;
+    width: 300px;
     margin: 8px;
     border-radius: 12px 12px 0 0;
     background-color: rgb(223, 223, 223);
@@ -191,6 +191,19 @@ a.button:hover {
 
 .card-text a:hover {
     filter: brightness(90%);
+}
+
+
+.card-product:nth-child(2) {
+    background-color: rgb(255, 155, 155);
+}
+
+.card-product:nth-child(6) {
+    background-color: rgb(175, 255, 155);
+}
+
+.card-product:nth-child(4) {
+    background-color: rgb(255, 247, 129);
 }
 
 /* create */
