@@ -5,7 +5,7 @@
             <title>Easy Cost - {{product.name}}</title>
         {% endblock %}
     <div class="cardCreate container editShow">
-        <section class="details">
+        <section class="details" style="background-color:{{product.color}}">
             <h3>Detalhes / Id: {{product.id}}</h3>
             <div class="item">
                 <div>Produto</div>
@@ -28,6 +28,11 @@
             </div>
 
             <div class="item">
+                <div> Valor por unidade </div> 
+                <div class="result">{{results}}</div>
+            </div>
+
+            <div class="item result">
                 <div>Valor Total</div>
                 <div>{{total}}</div>
             </div>
@@ -54,7 +59,7 @@
                 value={{product.id}}>
             </form>
             <div class="buttonsProducts">
-                <form class="form-delete" action="/products?_method=DELETE" method="post">
+                <form id="form-delete" action="/products?_method=DELETE" method="post">
                     <input type="hidden"
                     name="id"
                     value={{product.id}}>

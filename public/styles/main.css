@@ -3,7 +3,7 @@
 :root {
     --color-blue:#2392fa;
     --color-primary: #006a97;
-    --color-White: rgb(234, 246, 255);
+    --color-White: #eaf6ff;
     --color-darktheme: #282a36;
     --color-amareloM: #f7df1e;
 }
@@ -16,13 +16,16 @@
     font-family: 'Roboto', sans-serif;
     outline: none;
     box-sizing: border-box;
+    list-style: none;
 }
 
+html,
 body {
     background: var(--color-primary);
+    min-height: 100vh;
     width: 100%;
-    height: 100%;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }    
 
 /* Formulario create.njk */
@@ -38,4 +41,46 @@ select {
     cursor: pointer;
     border: none;
     outline: none;
+}
+
+input[type="radio"] {
+    width: initial;
+}
+
+.label-class:hover{
+    cursor: pointer;
+}
+
+input::placeholder {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+#form-delete button[type="submit"] {
+    margin-top: 12px;
+    background-color: lightcoral;
+}
+
+#form-delete button[type="submit"]:hover {
+    background-color: red;
+}
+
+button[type="submit"],
+a.button {
+    padding: 8px 32px;
+    background: var(--color-blue);
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center ;
+    font-weight: 600;
+    transition: 300ms;
+    width: 100%;
+}
+
+button[type="submit"]:hover,
+a.button:hover {
+    filter: brightness(90%);
+    cursor: pointer;
+    transition: background 0.6s;
 }

@@ -1,0 +1,44 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<section class="user-register container form">
+    <div class="imgLogin">
+        <img src="../../assets/register.svg" alt="">
+        <div class="texts">
+            <h1>Registro na EasyCost</h1>
+            <div>   
+                <p>Ínicio de tudo na Plataforma.</p>
+                <p>É um prazer ter-lo aqui, espero que possamos ajudar-lo muito bem.</p>
+            </div>
+        </div>
+    </div>
+    <form method="POST" action="/users/register">
+        <div class="header">
+            <h3>Registre-se</h3>
+        </div>
+
+        <div class="fields">
+            {% include 'user/fields.njk' %}
+
+        </div>
+
+        <button class="button" type="submit">
+            Salvar
+        </button>
+
+        <div class="questionsAccounts">
+            <p class="warning">
+            <i class="material-icons">warning</i>
+            Preencha todos os campos
+            </p>
+            <div>
+                <p>Já tem uma conta? </p>
+                <a href="/users/login">Logar</a>
+            </div>
+        </div>
+    </form>
+
+</section>
+
+{% endblock content %}

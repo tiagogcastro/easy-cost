@@ -8,31 +8,92 @@
            <title>Easy Cost </title>
         {% endblock %}
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap">
-
-        <link rel="stylesheet" href="/styles/main.css">
-        <link rel="stylesheet" href="/styles/header.css">
-        <link rel="stylesheet" href="/styles/cardetable.css">
+        {% include "parts/styles.njk" %}
     </head>
     <body>
-        <header class="headerMain">
-            <div class="logo">
-                <a href="/">
-                    <h1>Easy</h1>
-                    <h2>Cost</h2>
-                </a>
-            </div>
-            <div class="links">
-                <a href="/products">Matéria Prima</a>
-                <a>Ficha técnica</a>
-            </div>
-        </header>
-
+        
+        {% include "parts/header.njk" %}
+        
+        {% include "parts/messages.njk" %}
         {% block content %}
+            <div class="container1">
+                <div class="sectionBackgroundOne">
+                    <section class="explicationSite">
+                        <div class="presentation">
+                            <h1>Bem Vindo a EasyCost</h1>
+                            <div>
+                                <p class="homeParagraph">Está é uma plataforma voltada à ajudar pequenos empresários no ramo da gastronomia a se organizar com suas compras, listando o que tem em seu estabelecimento, como por exemplo, o Arroz.</p>
+                            </div>
+                            <img src="../../assets/production.svg" alt="">
+                            <a href="/" class="buttonsHome">Conheça mais sobre nós <i class="material-icons">arrow_downward</i></a>
+                        </div>
+                        <div class="questions">
+                            <img src="../../assets/question.svg" alt="">
+                            <h1>Por que escolher a EasyCost?</h1>
+                            <p>Nosso serviço oferece segurança, organização e atualizações constantemente para o melhor desempenho de nossos clientes. <Br>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit repellat asperiores eligendi nulla impedit.</p>
+                        </div>
+                    </section>
+                </div>
+                <div class="sectionBackgroundTwo">
+                    <section class="accountsInfo">
+                        <div class="accountPlataform">
+                            <h1>Como utilizar a Plataforma?</h1>
+                            <img src="../../assets/use.svg" alt="">
+                            <p class="homeParagraph">Ainda não se registrou? Comece criando sua conta, é rápido e fácil. <br> 
+                            Após a criação, você já estará logado, então terá acesso para começar cadastrar suas matérias primas e entre outras coisas que a plataforma disponibiliza.</p>
+                            <a href="/users/register" class="buttonsHome">Crie uma conta agora! <i class="material-icons">person_add</i></a>
+                        </div>
+                    </section>
+                </div>
+                <section class="creationSiteInfo">
+                    <div class="createStyles">
+                        <h2>A equipe criadora</h2>
+                        <div class="creators">
+                            <div class="creatorsMembers">
+                                <h3>Tiago Gonçalves</h3>
+                                <img src="../../assets/profile.svg" alt="">
+                                <p class="homeParagraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quos perferendis repellat officiis.</p>
+                            </div>
+                            <div class="creatorsMembers">
+                                <h3>Maria sei la oque</h3>
+                                <img src="../../assets/profile.svg" alt="">
+                                <p class="homeParagraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quos perferendis repellat officiis.</p>
+                            </div>
+                            <div class="creatorsMembers">
+                                <h3>Marcos joao da silva</h3>
+                                <img src="../../assets/profile.svg" alt="">
+                                <p class="homeParagraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quos perferendis repellat officiis.</p>
+                            </div>
 
-        {% endblock %}
+
+                            <div class="creatorsMembers">
+                                <h3>Tiago Gonçalves</h3>
+                                <img src="../../assets/profile.svg" alt="">
+                                <p class="homeParagraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quos perferendis repellat officiis.</p>
+                            </div>
+                            <div class="creatorsMembers">
+                                <h3>Maria sei la oque</h3>
+                                <img src="../../assets/profile.svg" alt="">
+                                <p class="homeParagraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quos perferendis repellat officiis.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="questionLogin">
+                        <div class="accountPlataform">
+                            <img src="../../assets/profile.svg" alt="">
+                            <h1>Já tem uma conta?</h1>
+                            <p class="homeParagraph">Se não estiver logado na plataforma, entre agora! O que está perdendo? Venha organizar sua empresa, estamos aqui contigo.
+                            </p>
+                            <a href="/users/login" class="buttonsHome">Entrar na sua conta <i class="material-icons">admin_panel_settings</i></a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        {% endblock content %}
 
         <script src="/scripts.js"></script>
+        {% include "parts/footer.njk" %}
 
     </body>
 </html>

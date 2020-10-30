@@ -83,29 +83,11 @@ if (pagination) {
     createPagination(pagination)
 }
 
-const confirmDelete = location.pathname.includes('edit')
-if (confirmDelete) {
-    deleteOrNo()    
-}
-function deleteOrNo(req, res) {
-    const formDelete = document.querySelector('.form-delete')
-    formDelete.addEventListener('submit', function(event) {
-        const confirmation = confirm('Deseja Deletar?')
-        if(!confirmation) {
-            event.preventDefault()
-        } else {
-            return res.redirect(currentPage)
-        }
-    })
-}
-function verde() {
-    document.querySelector('.details').style.backgroundColor = "#afff9b"
-  }
-  
-  function laranja() {
-    document.querySelector('.details').style.backgroundColor = "#fff781"
-  }
-  
-  function vermelho() {
-    document.querySelector('.details').style.backgroundColor = "#ff9b9b"
-  }
+const formDelete = document.querySelector('#form-delete')
+formDelete.addEventListener('submit', function(event) {
+    const confirmation = confirm('Deseja Deletar?')
+    if(!confirmation) {
+        event.preventDefault()
+    }
+})
+

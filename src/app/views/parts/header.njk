@@ -1,0 +1,48 @@
+<header class="headerMain">
+        <div class="logo">
+            <a href="/home">
+                <h1>Easy</h1>
+                <h2>Cost</h2>
+            </a>
+        </div>
+        <div class="links">
+            <a href="/home">
+                <i class="material-icons">home</i> 
+                Inicio
+            </a>
+            <a href="#about" class="no-drop">
+                <i class="material-icons">info</i> 
+                Sobre
+            </a>
+
+            {% if session.userId %}
+            <a href="/products">Máterias Primas</a>
+            <li class="accounts">
+            <a href="/users" class="userAccount">
+                <i class="material-icons">account_circle</i> 
+                Minha conta
+            </a>
+                <ul class="submenu">
+                    <li>
+                        <a href="/users">Perfil</a>
+                    </li>
+                    <li>
+                        <a href="/products">Matérias Prima</a>
+                    </li>
+                    <li>
+                        <form action="/users/logout" method="post">
+                            <li>
+                                <button>Sair</button>
+                            </li>
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        {% else %}  
+            <a href="/users">
+                <i class="material-icons">login</i> 
+                Entrar
+            </a>
+        {% endif %}
+        </div>
+</header>

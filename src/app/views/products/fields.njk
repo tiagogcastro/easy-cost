@@ -1,48 +1,67 @@
 <div class="item">
-    <div>Nome da Matéria</div>
+    <label for="category">Categoria da Matéria</label>
+    <div>
+        <select name="category_id" id="category">
+            {% for category in categories%}
+            <option value="{{category.id}}"     
+                {% if product.category_id == "category.id"%} selected {% endif %}>
+                {{category.name}}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+<div class="item">
+    <label for="name">Nome da Matéria</label>
     <div>
         <input type="text"
         name="name"
+        id="name"
         placeholder="Farinha de Trigo"
         value="{{ product.name }}">
     </div>
 </div>
 
 <div class="item">
-    <div>Marca</div>
+    <label for="brand">Marca</label>
     <div>
         <input type="text"
         name="brand"
+        id="brand"
         placeholder=""
         value="{{ product.brand }}">
     </div>
 </div>
 
 <div class="item">
-    <div>Fornecedor</div>
+    <label for="provider">Fornecedor</label>
     <div>
         <input type="text" 
         name="provider"
+        id="provider"
         value="{{ product.provider }}">
     </div>
 </div>
 
 <div class="item">
-    <div>Quantity(Kg)</div>
+    <label for="quantity">Quantity(Kg)</label>
     <div>
         <input type="number" 
         class="quantity"
         name="quantity"
+        id="quantity"
         placeholder="135"
         value="{{ product.quantity }}">
     </div>
 </div>
 
 <div class="item">
-    <div>Preço pago(R$)</div>
-    <div>
+    <label for="total_value">Preço pago(R$)</label for="total_value">
+    <div class="inputSolo">
         <input type="text" 
         class="total_value"
+        id="total_value"
         name="total_value"
         placeholder="R$ 0,00"
         value="{{product.total_value}}"
@@ -52,15 +71,9 @@
 </div>
 
 <div class="item">
-    <div>Cor de Fundo</div>
-    <div>
-      <input type="radio" name="cor" value="v" onClick="verde()" /> Verde
-      <br />
-
-      <input type="radio" name="cor" value="l" onClick="laranja()" />Amarelo
-      <br />
-
-      <input type="radio" name="cor" value="r" onClick="vermelho()" /> Vermelho
+    <label for="color"> Cor de Fundo</label>
+    <div class="inputsColors">
+        <input type="color" name="color" value="#000" id="color"/>
     </div>
 </div>
 <div class="buttonsProducts">

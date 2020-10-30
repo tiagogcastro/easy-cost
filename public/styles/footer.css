@@ -1,0 +1,26 @@
+.footer{
+    background-color: rgb(234, 246, 255);
+    color: var(--color-primary);
+    max-width: 100%;
+    width: 100%;
+    padding: 32px 0;
+    text-align: center;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer div {
+    margin: 0 32px 0 32px;
+}
+
+.footer .information {  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer .information a {
+}

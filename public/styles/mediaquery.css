@@ -1,0 +1,100 @@
+@media (max-width: 600px) {   
+    .headerMain {
+        flex-direction: column;
+        padding: 12px 32px 32px;
+    }
+
+    .links {
+        margin-top: 12px;
+    }
+
+    .container.form .imgLogin img {
+        display: none;
+    }
+
+    .container.form .imgLogin {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 1440px) {
+    .container.form {
+        flex-direction: column;
+    }
+
+    .container.form .imgLogin {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container.form .imgLogin .texts {
+        display: flex;
+        flex-direction: column;
+        margin-left: 48px;
+        border-left: none;
+    }
+}
+
+@media (max-width: 1100px) {
+    .container.form .imgLogin {
+        flex-direction: column;
+    }
+
+    .container.form .imgLogin img {
+        width: 400px;
+    }
+
+    .container.form .imgLogin .texts {
+        margin-top: 24px;
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 600px) {
+    .table-container .header form {
+        flex-direction: row;
+    }
+    .table-container .header form input {
+        margin-bottom: 0;
+        margin-right: 16px;
+    }
+    .table-container form button[type="submit"] {
+        width: 30%;
+    }
+}
+
+@media (min-width: 860px) {
+    .table-container .header {
+        flex-direction: row;
+    }
+
+    .table-container .header .button {
+        width: 50%;
+        margin: 0 32px 0;
+    }
+
+    .table-container .header form input {
+        width: 60%;
+    }
+
+    .table-container .header form {
+        margin: 0;
+    }
+}
+
+@media (min-width: 1100px) {
+    .table-container .header .button {
+        width: 30%;
+    }
+
+    .table-container .header form input {
+        width: 50%;
+    }
+
+    .table-container form button[type="submit"] {
+        width: 20%;
+    }
+
+}
+

@@ -3,43 +3,33 @@ const { date } = require('../../lib/utils')
 const db = require('../../config/db')
 
 module.exports = {
-    // Busca todos os cadastros no banco e retorna na pagina
-    all(callback) {
-        db.query(`
-        SELECT products.*
-        FROM products
-        GROUP BY (products.id)
-        ORDER BY updated_at DESC`, 
-        function(err, results) {
-            if(err) {
-                throw `Database Error! ${err}`
-            }
-            
-            callback(results.rows)
-        })
-    },
-
     create(data, callback) {
 
         const query = `
             INSERT INTO products (
+                user_id,
+                category_id,
                 name,
                 brand,
                 provider,
                 quantity,
                 total_value,
+                color,
                 created_at
-            ) VALUES ($1, $2, $3, $4, $5, $6)
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
             RETURNING id
         `
         data.total_value = data.total_value.replace(/\D/g,"")
         const values = [
+            data.user_id,
+            data.category_id,
             data.name,
             data.brand,
             data.provider,
             data.quantity,
             data.total_value,
-            date(Date.now()).iso,          
+            data.color,
+            date(Date.now()).iso
         ]
 
         db.query(query, values, (err, results) => {
@@ -51,18 +41,21 @@ module.exports = {
     },
 
     findAll: async() => {
-        return new Promise((resolve, reject) => {
-            db.query(`
+        try {
+            return new Promise((resolve, reject) => {
+                db.query(`
                 SELECT * FROM products
-                GROUP BY (products.id)
-                ORDER BY created_at DESC
-            `, [], function(err, results) {
-            if(err) {
-              reject(`Database Error! ${err}`)
-            }
-                resolve(results.rows)
-            })
-        })
+                ORDER BY products.color, products.updated_at asc
+                `, [], function(err, results) {
+                if(err) {
+                    reject(`Database Error! ${err}`)
+                }
+                    resolve(results.rows)
+                })
+            }) 
+        }catch(err) {
+            console.log(err)
+        }
       },
 
     find(id, callback) {
@@ -95,20 +88,28 @@ module.exports = {
     update(data, callback) {
         const query = `
             UPDATE products SET
-                name=($1),
-                brand=($2),
-                provider=($3),
-                quantity=($4),
-                total_value=($5)
-            WHERE id = $6
+                user_id=($1),
+                category_id=($2),
+                name=($3),
+                brand=($4),
+                provider=($5),
+                quantity=($6),
+                total_value=($7),
+                color=($8),
+                updated_at=($9)
+            WHERE id = $10
         `
 
         const values = [
+            data.user_id,
+            data.category_id,
             data.name,
             data.brand,
             data.provider,
             data.quantity,
             data.total_value,
+            data.color,
+            data.updated_at,
             data.id
         ]
 

@@ -1,9 +1,15 @@
-const express = require('express')
 const nunjucks = require('nunjucks')
+const express = require('express')
 const routes = require('./routes')
 const methodOverride = require('method-override')
-
+const session = require('./config/session')
 const server = express()
+
+server.use(session)
+server.use((req, res, next) => {
+    res.locals.session = req.session
+    next()
+})
 
 server.use(express.urlencoded({extended: true}))
 server.use(express.static('public'))
@@ -22,7 +28,6 @@ nunjucks.configure('src/app/views', {
 const DATABASE = process.env.DATABASE;
 server.listen(5000, function () {
     console.log((`Tabela funcionando: ${DATABASE}`))
-
     console.log('Servidor iniciou ou atualizou!')
 })
 

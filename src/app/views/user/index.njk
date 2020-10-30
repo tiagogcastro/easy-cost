@@ -1,0 +1,28 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<section class="user-dashboard container form">
+    <form method="POST" action="/users?_method=PUT">
+        <div class="header">
+            <h3>Detalhes | ID: {{user.id}}</h3>
+            <a href="/products">Suas matérias Prima</a>
+        </div>
+
+        <div class="fields">
+            {% include 'user/fields.njk' %}
+            <input type="hidden"
+            name="id"
+            value={{user.id}}>
+            <button class="button edit" type="submit">Atualizar</button>
+        </div>
+    </form>
+    <form id="form-delete" action="/users?_method=DELETE" method="post">
+        <input type="hidden"
+        name="id"
+        value={{user.id}}>
+        <button class="button delete" type="submit">Deletar</button>
+    </form>  
+</section>
+
+{% endblock content %}
