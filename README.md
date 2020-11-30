@@ -25,7 +25,7 @@ ___
 O projeto foi feito com o intuito de  microempresários poderem se organizar com as matérias primas( arroz, feijão etc..) que tem em seu estabelecimentos podendo deletar, editar ou criar algum a qualquer momento. <br>
 Não está finalizado e tende a ter melhorias como:
 <br>
-- Cards das matérias primas com cores diferentes, exemplo: cor vermelha para produtos que usa mais.
+- Cards das matérias primas com cores diferentes, exemplo: cor vermelha para produtos que usa mais. [Feature adicionada com súcesso!]
 <br>
 - Categorias que irá separar produtos brutos, líquidos e temperos/outros.
 E algumas outras que não irei listar por agora.
