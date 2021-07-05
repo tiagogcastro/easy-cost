@@ -36,8 +36,7 @@ ___
 
 <p>
 Com o evento do Hackaton, na qual o tema era gastronomia, eu e minha equipe começamos a pensar no que poderia ser feito, então após ser decidido, comecei a fazer o site funcional e visual. A principio, a ideia visual era outra, mas foi mudando até o atual momento. <br>
-O evento não pediu algo funcional(um site por exemplo) como mostrado, mas achei que seria perfeito fazer e também para ter auto experiencia na criação de uma aplicação CRUD. <br>
-De qualquer forma nosso time fez de uma forma de tabela excel e outros que foi enviado para a equipe do evento.
+O evento não pediu algo funcional(um site por exemplo) como mostrado, mas achei que seria perfeito fazer e também para ter auto experiencia na criação de uma aplicação CRUD.
 </p>
 
 ___
@@ -70,32 +69,19 @@ ___
 - Faça um commit com suas mudanças
 - 'Push' a sua branch
 - Ir em Pull Requests do projeto original e criar uma pull request com o seu commit
-___
-
-## :iphone: Equipe
-
-<p>
-<p> Tiago Gonçalves </p>
-  - <a href="https://www.linkedin.com/in/tiagogoncalves200428/">Linkedin</a>&nbsp;|&nbsp;
-  <a href="https://www.instagram.com/tg001_xx/?hl=pt-br">Instagram</a>&nbsp;|&nbsp;
-  <a href="https://github.com/Tiaguin061">Github</a>
-</p>
 
 ___
 
-<p> Aracelly Cordeiro </p>
-  - <a href="https://www.linkedin.com/in/aracelly-cordeiro-773078117">Linkedin</a>&nbsp;|&nbsp;
-</p>
+<div align="left">
+  <h1 id="rede-social">📱 Minhas redes sociais</h1>
+  <p> Eu me chamo Tiago Gonçalves, abaixo deixo os links das minhas principais redes na qual participo.
+  </p>
 
-___
+  [![](https://img.shields.io/badge/-Github-434140)](https://github.com/Tiaguin061)
+  [![](https://img.shields.io/badge/-Linkedin-3DC3C9)](https://www.linkedin.com/in/tiagogoncalves200428/)
+  [![](https://img.shields.io/badge/-Instagram-EA3C7A)](https://www.instagram.com/tiaguinho_gon1/?hl=pt-br)
+  [![](https://img.shields.io/badge/-Discord-5276f2)](https://discord.com/users/586186122611130368)
 
-<p> Tamy Garutti </p>
-  - <a href="https://www.linkedin.com/in/tamiris-garutti-de-lima-56422125">Linkedin</a>&nbsp;|&nbsp;
-</p>
+</div>
 
-___
-
-<p> Juliana Souza </p>
-  - <a href="https://www.linkedin.com/in/juliana-souza-982bb9135">Linkedin</a>&nbsp;|&nbsp;
-  <a href="https://github.com/juhinfinit">Github</a>
-</p>
+</br>
