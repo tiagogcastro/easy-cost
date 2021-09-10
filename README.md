@@ -1,74 +1,127 @@
-<p align="center">
-  <img src="https://gyazo.com/642880554af0817df69c6cbd20644de7.png" width="300" heigth="300">
-</p>
+<h1 align="center"> Easy cost </h1>
+
+<p align="center">🔍 Navegação dentro do Readme. </p>
+
+<div align="center">
+
+  [![](https://img.shields.io/badge/-Sobre-5276f2)](#sobre-o-projeto)
+  [![](https://img.shields.io/badge/-Tecnologias-5276f2)](#techs)
+  [![](https://img.shields.io/badge/-Começando-5276f2)](#rodar-projeto)
+  [![](https://img.shields.io/badge/-Contribuir-5276f2)](#contribuir)
+  [![](https://img.shields.io/badge/-Social-5276f2)](#rede-social)
+  [![](https://img.shields.io/badge/-Licença-5276f2)](#license)
+
+
+</div>
+
+</br></br>
+
+<div align="left">
+  <h1 id="sobre-o-projeto"> ✅ Sobre o projeto </h1>
+  <p>
+    O projeto foi feito com o intuito de  microempresários poderem se organizar com as matérias primas( arroz, feijão etc..) que tem em seu estabelecimentos podendo deletar, editar ou criar algum a qualquer momento. 
+  </p>
+</div>
+
+</br>
 
 ___
 
-<p align="center">
-  <a href="#information_source-sobre">ℹ Sobre</a>&nbsp;|&nbsp;
-  <a href="#interrobang-motivo">💜 Motivo</a>&nbsp;|&nbsp;
-  <a href="#seedling-requisitos-mínimos">❗ Requisitos</a>&nbsp;|&nbsp; 
-  <a href="#rocket-tecnologias-utilizadas">🚀 Tecnologias</a>&nbsp;|&nbsp;
-  <a href="#link-como-contribuir">🔗 Como Contribuir</a>&nbsp;|&nbsp;
-  <a href="#iphone-minhas-equipe">📱 Equipe</a>&nbsp;|&nbsp;
-</p>
+<div align="left"> 
+  <h1 id="techs">🚀 Tecnologias Utilizadas </h1> 
+  <p>
+    Utilizei o VsCode para fazer os códigos em NodeJS, JS, html e css. 
+    </br>
+    O Insominia é para testar a api feita.
+  </p>
+  <div>
+    <p>
+      ➡
+      <a href="https://nodejs.org/en/"> NodeJS</a>
+    </p>
+    <p>
+      ➡
+      <a href="https://www.postgresql.org"> PostgresSQL</a>
+    </p>
+    <p>
+      ➡
+      <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript"> Javascript </a>
+    </p>
+    <p>
+      ➡
+      <a href="https://insomnia.rest"> Insominia</a>
+    </p>
+    <p>
+      ➡
+      <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML"> HTML</a>
+    </p>
+    <p>
+      ➡
+      <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS"> CSS</a>
+    </p>
+    <p>
+      ➡
+      <a href="https://code.visualstudio.com"> VsCode</a>
+    </p>
+  </div>
+</div> 
+
+</br>
 
 ___
 
-[![Video de Demonstração do site](https://i.gyazo.com/2f24122ca6a5d613bd252d2a2cd0ba18.gif)](https://gyazo.com/2f24122ca6a5d613bd252d2a2cd0ba18)
-<small>Video demonstração</small>
-___
+<div align="left">
+  <h1 id="rodar-projeto">💻 Como rodar o projeto na sua máquina da forma que rodei na minha</h1>
+  <p>➡ Instalar o NodeJS na sua máquina. <p>
 
-## :information_source: Sobre
+  <p>➡ Vá no cmd dele(no Vscode o nome é "terminal") ou abra o cmd da sua máquina, digite e execute: </p>
+  <p> 
 
-<p>
-O projeto foi feito com o intuito de  microempresários poderem se organizar com as matérias primas( arroz, feijão etc..) que tem em seu estabelecimentos podendo deletar, editar ou criar algum a qualquer momento. <br>
-Não está finalizado e tende a ter melhorias como:
-<br>
-- Cards das matérias primas com cores diferentes, exemplo: cor vermelha para produtos que usa mais. [Feature adicionada com súcesso!]
-<br>
-- Categorias que irá separar produtos brutos, líquidos e temperos/outros.
-E algumas outras que não irei listar por agora.
-</p>
-___
+    git clone https://github.com/Tiaguin061/easy-cost
+  </p>
+  <p>➡ Entre na pasta do projeto(a que acabou de clonar), digite e execute: </p>
+  <p>
 
-## :interrobang: Motivo
+    npm install
+  </p>
+  <p>➡ Para ver os comandos disponíveis e dependências instaladas, vá no arquivo package.json. </p>
+  
+  </br>
 
-<p>
-Com o evento do Hackaton, na qual o tema era gastronomia, eu e minha equipe começamos a pensar no que poderia ser feito, então após ser decidido, comecei a fazer o site funcional e visual. A principio, a ideia visual era outra, mas foi mudando até o atual momento. <br>
-O evento não pediu algo funcional(um site por exemplo) como mostrado, mas achei que seria perfeito fazer e também para ter auto experiencia na criação de uma aplicação CRUD.
-</p>
+  <p>➡ Crie um arquivo .env e sega o formato do .env.example para poder rodar o banco de dados que está no arquivo database.sql.
 
-___
+  <p> Por fim, para iniciar o servidor, vá em seu editor de código e vá no cmd dele(no Vscode o nome é "terminal") ou abra o cmd da sua máquina, digite e execute: </p>
+  <p>
 
-## :seedling: Requisitos Mínimos
+    npm run start
+  </p>
+  <p>❤ Pronto, seu projeto está certinho para funcionar.</p>
+  <p> Algum erro? Contate-me. </p>
+</div>
 
-Ter NodeJs instalado no Computador.
-Dar npm install no projeto.
-Criar um arquivo .env e seguir o formato do .env.example para poder rodar o banco de dados que está no arquivo database.sql.
-
-___
-
-## :rocket: Tecnologias Utilizadas 
-
-O projeto foi desenvolvido utilizando as seguintes tecnologias
-
-- <a href=""> NodeJs </a>
-- <a href=""> JavaScript </a>
-- <a href=""> HTML </a>
-- <a href=""> CSS </a>
-- <a href=""> PostgresSQL </a>
+</br>
 
 ___
 
-## :link: Como contribuir 
+<div align="left">
+  <h1 id="contribuir">🔗 Como contribuir com o projeto</h1>
+  <div>
+    <p> 1° - Faça um Fork do repositório; </p>
+    <p> 2° - Clone o repositório; </p>
+    <p> 3° - Crie uma branch com a sua feature; </p>
+    <p> 4° - Faça um commit bem descritivo com suas mudanças; </p>
+    <p> 5° - Dê 'Push' a sua branch; </p>
+    <p> 6° - Ir em Pull Requests do projeto original e criar uma pull request com o seu commit; </p>
+    <p>
+     ➡ Caso tenha dúvidas sobre como criar um pull request, 
+      <a 
+        href="https://docs.github.com/pt/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request"> clique neste link.
+      </a>  
+    </p>
+  </div>
+</div>
 
-- Faça um Fork do repositório
-- Clone o seu repositório
-- Crie uma branch com a sua feature
-- Faça um commit com suas mudanças
-- 'Push' a sua branch
-- Ir em Pull Requests do projeto original e criar uma pull request com o seu commit
+</br>
 
 ___
 
@@ -83,5 +136,3 @@ ___
   [![](https://img.shields.io/badge/-Discord-5276f2)](https://discord.com/users/586186122611130368)
 
 </div>
-
-</br>
